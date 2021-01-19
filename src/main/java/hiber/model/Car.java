@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Car {
 
     @Id
-//    @Column(name = "id", nullable = false, unique = true)
+    @Column(name = "id", nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
