@@ -17,7 +17,7 @@ public class Car {
     @Column(name = "series")
     private int series;
 
-    @OneToOne(optional = false, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "car")
+    @OneToOne(fetch = FetchType.LAZY, optional = false, orphanRemoval = true, mappedBy = "car")
     private User user;
 
     public Car() {

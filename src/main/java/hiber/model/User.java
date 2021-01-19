@@ -11,7 +11,7 @@ public class User {
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
 
-   @Column(name = "name")
+   @Column(name = "first_name")
    private String firstName;
 
    @Column(name = "last_name")
@@ -20,8 +20,8 @@ public class User {
    @Column(name = "email")
    private String email;
 
-   @OneToOne(optional = false, cascade = CascadeType.ALL, orphanRemoval = true)
-   @JoinColumn(name = "id ")
+   @OneToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL, orphanRemoval = true)
+   @JoinColumn(name = "car_id")
    private Car car;
 
    public User() {}
@@ -70,5 +70,14 @@ public class User {
 
    public void setEmail(String email) {
       this.email = email;
+   }
+
+   @Override
+   public String toString() {
+      return "User{" +
+              "firstName='" + firstName + '\'' +
+              ", lastName='" + lastName + '\'' +
+              ", email='" + email + '\'' +
+              '}';
    }
 }
